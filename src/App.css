@@ -1,0 +1,28 @@
+.NavBar {
+    background-color: darkslateblue;
+    border-bottom-color: deepskyblue;
+    margin-bottom: 25px;
+}
+
+.main
+{
+}
+.iniLogo
+{
+
+    width: 100px;
+    height: 100px;
+
+}
+
+body
+{
+    background-color: midnightblue;
+}
+
+.SearchBar
+{
+    position: absolute;
+     top: 50px;
+    right: 30px;
+}
