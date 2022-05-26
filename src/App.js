@@ -111,9 +111,11 @@ function App() {
 
 
       </div>
+
+        <div className="center">
       { MovieData.map( (m) =>  <MovieCard Title = {m.Title} Year = {m.Year} imdbID = {m.imdbID} Type = {m.Type} Poster = {m.Poster}/> ) }
 
-
+        </div>
 
 
 

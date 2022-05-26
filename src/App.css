@@ -26,3 +26,8 @@ body
      top: 50px;
     right: 30px;
 }
+
+.center
+{
+    justify-content: center;
+}
