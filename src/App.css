@@ -7,12 +7,17 @@
 .main
 {
 }
+
+.img
+{
+    cursor: pointer;
+}
 .iniLogo
 {
 
     width: 100px;
     height: 100px;
-
+    cursor: pointer;
 }
 
 body

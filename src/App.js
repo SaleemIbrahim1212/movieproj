@@ -37,11 +37,6 @@ function App() {
     };
 
 
-const clicked = () => {
-
-}
-
-
 
   return (
 
@@ -49,7 +44,7 @@ const clicked = () => {
     <div className="main">
 
       <div className="NavBar">
-        <img className="iniLogo" src ={Logo} />
+        <img className="iniLogo" src ={Logo} onClick= {() => window.location.reload(false) }  />
 
 
           <div className="SearchBar">
