@@ -12,7 +12,7 @@ import {useEffect} from "react";
 
 function App() {
 
-    const [Searchs, UpdateSearch] = useState(`http://www.omdbapi.com/?s=one piece&apikey=2cd52f36`);
+    const [Searchs, UpdateSearch] = useState(`https://www.omdbapi.com/?s=one piece&apikey=2cd52f36`);
     const [MovieData, setMovies] = useState([]);
 
     const getMovieRequest = async () => {
@@ -32,7 +32,7 @@ function App() {
     const getinputfromsearch = (event ) =>
     {
         const val = document.getElementById("Forms").value;
-        UpdateSearch(`http://www.omdbapi.com/?s=` + val + `&apikey=2cd52f36` )
+        UpdateSearch(`https://www.omdbapi.com/?s=` + val + `&apikey=2cd52f36` )
 
     };
 
