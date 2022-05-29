@@ -29,10 +29,13 @@ function App() {
     useEffect(() => {
         getMovieRequest();
     }, [Searchs]);
-    const getinputfromsearch = (event ) =>
+    const getinputfromsearch = (e) =>
     {
+        e.preventDefault();
+
         const val = document.getElementById("Forms").value;
         UpdateSearch(`https://www.omdbapi.com/?s=` + val + `&apikey=2cd52f36` )
+
 
     };
 
@@ -48,7 +51,7 @@ function App() {
 
 
           <div className="SearchBar">
-        <Form className = "d-flex">
+        <Form className = "d-flex" onSubmit={getinputfromsearch}>
 
             <FormControl
                 id = "Forms"
@@ -56,7 +59,7 @@ function App() {
                 placeholder =" Search for movies"
                 className = "me-2"
                 aria-label = "Search"
-
+ 
                 />
             <Button variant = "outline-success" onClick= {getinputfromsearch}>Search</Button>
         </Form>
