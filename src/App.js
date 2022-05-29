@@ -12,7 +12,7 @@ import {useEffect} from "react";
 
 function App() {
 
-    const [Searchs, UpdateSearch] = useState(`http://www.omdbapi.com/?s=the punisher&apikey=2cd52f36`);
+    const [Searchs, UpdateSearch] = useState(`http://www.omdbapi.com/?s=one piece&apikey=2cd52f36`);
     const [MovieData, setMovies] = useState([]);
 
     const getMovieRequest = async () => {
