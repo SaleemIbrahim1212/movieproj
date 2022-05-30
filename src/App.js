@@ -20,8 +20,9 @@ function App() {
 
         const response = await fetch(Searchs);
         const responseJson = await response.json();
-
+        setMovies([])
         if (responseJson.Search) {
+            setMovies([])
             setMovies(responseJson.Search);
         }
     };
@@ -59,7 +60,7 @@ function App() {
                 placeholder =" Search for movies"
                 className = "me-2"
                 aria-label = "Search"
- 
+
                 />
             <Button variant = "outline-success" onClick= {getinputfromsearch}>Search</Button>
         </Form>
@@ -69,7 +70,7 @@ function App() {
       </div>
 
         <div className="center">
-      { MovieData.map( (m) =>  <MovieCard key = {m.imdbID} Title = {m.Title} Year = {m.Year} imdbID = {m.imdbID} Type = {m.Type} Poster = {m.Poster}/> ) }
+      { MovieData.map( (m) =>  <MovieCard   Title = {m.Title} Year = {m.Year} imdbID = {m.imdbID} Type = {m.Type} Poster = {m.Poster}/> ) }
 
         </div>
 

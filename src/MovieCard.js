@@ -17,8 +17,9 @@ function MovieCard (props)
         <Card.Img variant="top" src=  {props.Poster} height='400px' width='400px' alt = {props.Title } />
         <Card.Body style ={{justifyContent: 'center'}}>
             <img className="Images" src={Netflix} width="50" height="50"  margin= " 10px"/>
-            <img className="Images" src = {Youtube} width="50" height="50"   margin= " 10px"/>
+            <img className="Images" src = {Youtube} width="50" height="50"   margin= " 10px" onClick={ () => {window.open("https://www.youtube.com/results?search_query=" + props.Title)}}/>
             <img className="Images" src = {Amazon} width = "50" height= "50"   margin= " 10px"/>
+
          </Card.Body>
     </Card>
 </div>
