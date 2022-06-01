@@ -8,6 +8,7 @@ import Button from 'react-bootstrap/Button'
 import MovieCard from './MovieCard'
 import react, {useState} from "react";
 import ReactDOM from 'react-dom';
+import CouldNotFind from './luffysleep.png'
 import {useEffect} from "react";
 
 function App() {
@@ -20,10 +21,14 @@ function App() {
 
         const response = await fetch(Searchs);
         const responseJson = await response.json();
-        setMovies([])
+
         if (responseJson.Search) {
-            setMovies([])
+
             setMovies(responseJson.Search);
+        }
+        else
+        {
+            setMovies([])
         }
     };
 
@@ -69,10 +74,11 @@ function App() {
 
       </div>
 
-        <div className="center">
-      { MovieData.map( (m) =>  <MovieCard   Title = {m.Title} Year = {m.Year} imdbID = {m.imdbID} Type = {m.Type} Poster = {m.Poster}/> ) }
+        {!(MovieData.length === 0) ? MovieData.map((m) => <MovieCard Title={m.Title} Year={m.Year} imdbID={m.imdbID}
+                                                                     Type={m.Type} Poster={m.Poster}/>) :
+           <div className="center" > <img  className="CouldNotFind" src={CouldNotFind} /> <h1 style = {{ color : "white", alignContent: "center"}}> Opps... we could notfind what you were looking for</h1></div>
+        }
 
-        </div>
 
 
 

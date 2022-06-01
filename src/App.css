@@ -6,6 +6,8 @@
 
 .main
 {
+    align-items: center;
+    justify-content: center;
 }
 
 .img
@@ -28,11 +30,25 @@ body
 .SearchBar
 {
     position: absolute;
-     top: 50px;
+     top: 30px;
     right: 30px;
 }
 
 .center
 {
-    justify-content: center;
+    align-content: center;
+    align-items: center;
+
+ }
+
+
+.CouldNotFind
+{
+
+    position: absolute;
+    top: 30%;
+    right: 40%;
+
+
+
 }
