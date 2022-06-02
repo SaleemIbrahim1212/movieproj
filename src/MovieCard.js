@@ -30,7 +30,7 @@ function MovieCard (props)
 
  return (
 <div className= "Cardz" >
-    <Card style={{ width: '18rem', backgroundColor: 'lightsalmon', height: '-webkit-fill-available'}}>
+    <Card style={{ width: '18rem', backgroundColor: 'black', height: '-webkit-fill-available'}}>
         <Card.Img variant="top" src=  {props.Poster} height='400px' width='400px' alt = {props.Title } />
         <Card.Body style ={{justifyContent: 'center' , height: '30'}}>
             <img className="Images" src={Netflix} width="50" height="50"  margin= " 10px" onClick={ () => AppSearch(props.Title, true,false)} />
