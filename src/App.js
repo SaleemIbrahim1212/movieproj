@@ -76,10 +76,12 @@ function App() {
 
       </div>
 
+        <div className = "in-left">
         {!(MovieData.length === 0) ? MovieData.map((m) => <MovieCard Title={m.Title} Year={m.Year} imdbID={m.imdbID}
                                                                      Type={m.Type} Poster={m.Poster}/>) :
            <div className="center" > <img  className="CouldNotFind" src={CouldNotFind} /> <h1 style = {{ color : "white", alignContent: "center"}}> Opps... we could notfind what you were looking for</h1></div>
         }
+     </div>
 
 
 
