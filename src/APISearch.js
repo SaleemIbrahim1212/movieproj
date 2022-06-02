@@ -1,8 +1,8 @@
 
 export function AppSearch (MovieTitle, isNetflix, isPrime) {
 
+    let flip = true
 
-    const name = ''
     const options = {
         method: 'GET',
         headers: {
@@ -22,18 +22,18 @@ export function AppSearch (MovieTitle, isNetflix, isPrime) {
 
                     const name = e.display_name
                     const url = e.url
-                    if (name === "Netflix" && isNetflix=== true )
+
+                    if (name === "Netflix" && isNetflix=== true && flip)
                     {
+                        flip = false;
                         window.open(url, '_blank').focus();
                     }
-                    else if (name=== "Amazon Prime Video" && isPrime ===true)
+                    else if (name=== "Amazon Prime Video" && isPrime ===true && flip)
                     {
+                        flip = false
                         window.open(url, '_blank').focus();
                     }
-                    else if (name==="")
-                    {
-                        alert ("Opps not in here")
-                    }
+
 
 
 
@@ -41,6 +41,8 @@ export function AppSearch (MovieTitle, isNetflix, isPrime) {
 
             )) )
             .catch(err => console.error(err));
+
+
 
 
 }
