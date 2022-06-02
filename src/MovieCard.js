@@ -8,7 +8,7 @@ import Amazon from './prime.png'
 import Youtube from './youtube.png'
 import Netflix from './netflix.png'
 import {AppSearch} from "./APISearch";
-
+import { nanoid } from 'nanoid'
 function MovieCard (props)
 {
     const  APISEARCH =  () =>
@@ -29,8 +29,8 @@ function MovieCard (props)
     }
 
  return (
-<div className= "Cardz">
-    <Card key = {props.imdbID} style={{ width: '18rem', backgroundColor: 'black', height: '-webkit-fill-available'}}>
+<div className= "Cardz" >
+    <Card style={{ width: '18rem', backgroundColor: 'black', height: '-webkit-fill-available'}}>
         <Card.Img variant="top" src=  {props.Poster} height='400px' width='400px' alt = {props.Title } />
         <Card.Body style ={{justifyContent: 'center' , height: '30'}}>
             <img className="Images" src={Netflix} width="50" height="50"  margin= " 10px" onClick={ () => AppSearch(props.Title, true,false)} />

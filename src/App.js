@@ -10,12 +10,12 @@ import react, {useState} from "react";
 import ReactDOM from 'react-dom';
 import CouldNotFind from './luffysleep.png'
 import {useEffect} from "react";
-
+import { nanoid } from 'nanoid'
 function App() {
 
     const [Searchs, UpdateSearch] = useState(`https://www.omdbapi.com/?s=one piece&apikey=2cd52f36`);
     const [MovieData, setMovies] = useState([]);
-
+    let flag = true
     const getMovieRequest = async () => {
         const url = Searchs;
 
@@ -25,6 +25,7 @@ function App() {
         if (responseJson.Search) {
 
             setMovies(responseJson.Search);
+            flag = true
         }
         else
         {
@@ -76,12 +77,14 @@ function App() {
 
       </div>
 
-        <div className = "in-left">
-        {!(MovieData.length === 0) ? MovieData.map((m) => <MovieCard Title={m.Title} Year={m.Year} imdbID={m.imdbID}
-                                                                     Type={m.Type} Poster={m.Poster}/>) :
+        <div className = "in-left" key={nanoid()} >
+        {!(MovieData.length === 0) ? MovieData.map((m,index) => <MovieCard   Title={m.Title} Year={m.Year}
+                                                                     Type={m.Type} Poster={m.Poster}   />) :
            <div className="center" > <img  className="CouldNotFind" src={CouldNotFind} /> <h1 style = {{ color : "white", alignContent: "center"}}> Opps... we could notfind what you were looking for</h1></div>
+
         }
      </div>
+
 
 
 
