@@ -1,6 +1,6 @@
 .NavBar {
-    background-color: darkslateblue;
-    border-bottom-color: deepskyblue;
+    background-color: antiquewhite;
+
     margin-bottom: 25px;
 }
 
@@ -24,7 +24,7 @@
 
 body
 {
-    background-color: midnightblue;
+    background-color: navajowhite;
 }
 
 .SearchBar
