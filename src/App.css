@@ -119,7 +119,6 @@ body
     -o-animation-duration:1s;
     animation-delay: 1s;
     display: grid;
-    grid-template-columns: 200px 200px 200px 200px;
-    gap: 50px 300px;
-
+    grid-template-columns: auto auto auto auto;
+ 
 }
