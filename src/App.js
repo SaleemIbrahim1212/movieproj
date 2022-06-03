@@ -16,7 +16,7 @@ import darkoff from './darkoff.png'
 function App() {
 
 
-    const [isDark, setDark ] = useState(false)
+    const [isDark, setDark ] = useState(true)
     const [Searchs, UpdateSearch] = useState(`https://www.omdbapi.com/?s=one piece&apikey=2cd52f36`);
     const [MovieData, setMovies] = useState([]);
     let flag = true
