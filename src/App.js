@@ -11,8 +11,12 @@ import ReactDOM from 'react-dom';
 import CouldNotFind from './luffysleep.png'
 import {useEffect} from "react";
 import { nanoid } from 'nanoid'
+import darkon from './darkon.png'
+import darkoff from './darkoff.png'
 function App() {
 
+
+    const [isDark, setDark ] = useState(false)
     const [Searchs, UpdateSearch] = useState(`https://www.omdbapi.com/?s=one piece&apikey=2cd52f36`);
     const [MovieData, setMovies] = useState([]);
     let flag = true
@@ -35,7 +39,7 @@ function App() {
 
     useEffect(() => {
         getMovieRequest();
-    }, [Searchs]);
+    }, [Searchs, isDark]);
     const getinputfromsearch = (e) =>
     {
         e.preventDefault();
@@ -52,10 +56,10 @@ function App() {
 
   return (
 
-      <body>
+      <body className={!isDark ?  "LightMode" : "DarkMode"}>
     <div className="main">
 
-      <div className="NavBar">
+      <div className={!isDark ? "NavBarLight " : "NavBarDark"}>
         <img className="iniLogo" src ={Logo} onClick= {() => window.location.reload(false) }  />
 
 
@@ -71,6 +75,7 @@ function App() {
 
                 />
             <Button variant = "outline-success" onClick= {getinputfromsearch}>Search</Button>
+            { !isDark ?  <img src={darkoff} onClick={ () => setDark(!isDark) } width = "50" height="50" /> : <img src = {darkon} onClick={() => setDark(!isDark)} width="50" height="50"/> }
         </Form>
           </div>
 

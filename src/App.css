@@ -27,6 +27,30 @@ body
     background-color: antiquewhite;
 }
 
+.LightMode
+{
+    background-color: antiquewhite;
+}
+
+.DarkMode
+{
+    background-color: #13294A;
+}
+
+.NavBarLight
+{
+    background-color: lightsalmon;
+
+    margin-bottom: 25px;
+}
+
+
+.NavBarDark
+{
+    background-color: #00008B;
+
+    margin-bottom: 25px;
+}
 .SearchBar
 {
     position: absolute;
@@ -120,5 +144,5 @@ body
     animation-delay: 1s;
     display: grid;
     grid-template-columns: auto auto auto auto;
- 
+
 }
