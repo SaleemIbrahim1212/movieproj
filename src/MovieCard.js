@@ -9,8 +9,17 @@ import Youtube from './youtube.png'
 import Netflix from './netflix.png'
 import {AppSearch} from "./APISearch";
 import { nanoid } from 'nanoid'
+import Streams from './StreamChannels'
+import {useState} from "react";
+import {useEffect} from "react";
+
 function MovieCard (props)
 {
+
+
+
+    const [i, seti] = useState(1)
+    const [flag, setFlag] = useState(false);
     const  APISEARCH =  () =>
     {
         const options = {
@@ -28,21 +37,28 @@ function MovieCard (props)
             .catch(err => console.error(err));
     }
 
- return (
-<div className= "Cardz" >
-    <Card style={{ width: '18rem', backgroundColor: 'black', height: '-webkit-fill-available'}}>
-        <Card.Img variant="top" src=  {props.Poster} height='400px' width='400px' alt = {props.Title } />
-        <Card.Body style ={{justifyContent: 'center' , height: '30'}}>
-            <img className="Images" src={Netflix} width="50" height="50"  margin= " 10px" onClick={ () => AppSearch(props.Title, true,false)} />
-            <img className="Images" src = {Youtube} width="50" height="50"   margin= " 10px" onClick={ () => {window.open("https://www.youtube.com/results?search_query=" + props.Title)}}/>
-            <img className="Images" src = {Amazon} width = "50" height= "50"   margin= " 10px" onClick={ () => AppSearch(props.Title, false,true)}/>
+    function increment()
+    {
+        seti(i+ 1 )
 
-         </Card.Body>
+    }
+
+
+ return (
+
+     <div className={"item"}>
+    <Card style={{ width: '18rem', backgroundColor: 'black'}}>
+        <Card.Img variant="top" src=  {props.Poster} height='400px' width='400px' alt = {props.Title } onClick={() => {setFlag(!flag)}} />
+        { flag === true ? <Card.Body id = "myDiv" >
+            <Streams Title = {props.Title} />
+         </Card.Body> : ""}
     </Card>
-</div>
+
+     </div>
 
 
  );
+
 }
 
 export default MovieCard;

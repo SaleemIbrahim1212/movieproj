@@ -1,16 +1,27 @@
 .Cardz
 {
 
-    float: left;
+
+}
+
+.item
+{
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    justify-items: center;
     margin: 15px;
     margin-right: auto;
     justify-content: center;
+
+
 }
 
 .Images
 {
     cursor: pointer;
     margin: 15px;
+
 
 }
 
