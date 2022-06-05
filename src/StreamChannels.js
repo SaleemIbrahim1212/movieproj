@@ -17,7 +17,7 @@ export const  Streams =  (props) =>
 
     const CacheDataNetflix  = props.Title + "Netflix"
     const CacheDataAmazon  = props.Title + "Amazon"
-    const ls  = require('localstorage-ttl')
+
 
 
 
@@ -31,7 +31,7 @@ export const  Streams =  (props) =>
 
     useEffect(() => {
 
-        if (! ( ls.get(CacheDataNetflix) ||  ls.get(CacheDataAmazon) )) {
+        if (! ( localStorage.getItem(CacheDataNetflix) ||  localStorage.getItem(CacheDataAmazon) )) {
             fetch('https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=' + props.Title + '&country=ca', options)
                 .then(response => response.json())
                 .then(response =>
@@ -45,7 +45,7 @@ export const  Streams =  (props) =>
 
                                 setNetflixurl(url)
                                 setNetflix(true)
-                                ls.set(CacheDataNetflix, url)
+                                localStorage.setItem(CacheDataNetflix, url)
 
 
                             }
@@ -53,7 +53,7 @@ export const  Streams =  (props) =>
 
                                 setPrimeurl(url)
                                 setPrime(true)
-                                ls.set(CacheDataAmazon, url)
+                                localStorage.setItem(CacheDataAmazon, url)
 
                             }
 
@@ -65,18 +65,18 @@ export const  Streams =  (props) =>
         {
 
             console.log ("Checking cache .....")
-            let links = ls.get(CacheDataNetflix)
+            let links = localStorage.getItem(CacheDataNetflix)
 
             if (links) {
-                setNetflixurl(ls.get(CacheDataNetflix))
+                setNetflixurl(links)
                 setNetflix(true)
 
             }
-            links = ls.get(CacheDataAmazon)
+            links = localStorage.getItem(CacheDataAmazon)
 
             if (links)
             {
-                 setPrimeurl(ls.get(CacheDataAmazon))
+                 setPrimeurl( links)
                 setPrime(true)
 
             }
