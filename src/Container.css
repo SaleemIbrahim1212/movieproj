@@ -1,7 +1,20 @@
-.Cardz
-{
+.hvr-float {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
 
-
+}
+.hvr-float:hover, .hvr-float:focus, .hvr-float:active {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
 }
 
 .item
@@ -22,47 +35,34 @@
     cursor: pointer;
     margin: 5px;
     margin-top: 0px;
+    align-self: center;
 
 
 
 }
 
 .card-body {
-    background-color: #ffffff00;
-
-    height: 100px;
-    width: auto;
-    align-self: center;
-    padding: 0px;
+    background-color: #ffffff00 !important;
+    height: 50px;
+    width: auto !important;
+ 
+    padding: 0px !important;
+    display: flex !important;
+    justify-content: center;
 
 
 }
 .card
 {
-    border: none;
+    border: none !important;
+
 }
 
 
 
 .card-img-top
 {
-  align-self: center;
+  align-self: center !important;
+
 }
 /* Float */
-.hvr-float {
-    display: inline-block;
-    vertical-align: middle;
-    -webkit-transform: perspective(1px) translateZ(0);
-    transform: perspective(1px) translateZ(0);
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-    -webkit-transition-duration: 0.3s;
-    transition-duration: 0.3s;
-    -webkit-transition-property: transform;
-    transition-property: transform;
-    -webkit-transition-timing-function: ease-out;
-    transition-timing-function: ease-out;
-}
-.hvr-float:hover, .hvr-float:focus, .hvr-float:active {
-    -webkit-transform: translateY(-8px);
-    transform: translateY(-8px);
-}
