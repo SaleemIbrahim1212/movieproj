@@ -21,7 +21,7 @@ function App() {
     const [MovieData, setMovies] = useState([]);
     let flag = true
     const getMovieRequest = async () => {
-        const url = Searchs;
+
 
         const response = await fetch(Searchs);
         const responseJson = await response.json();
@@ -39,7 +39,7 @@ function App() {
 
     useEffect(() => {
         getMovieRequest();
-    }, [Searchs, isDark]);
+    }, [Searchs]);
     const getinputfromsearch = (e) =>
     {
         e.preventDefault();

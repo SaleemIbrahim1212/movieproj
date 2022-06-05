@@ -13,7 +13,7 @@ const [flag, setFlag] = useState(false);
  return (
 
      <div className={"item"}>
-    <Card style={{ width: '18rem' , backgroundColor: '#ffffff00'}}>
+    <Card style={{ width: '18rem' , backgroundColor: '#ffffff00'}} className= "hvr-float">
         <Card.Img variant="top" src =  { props.Poster === "N/A"  ?  nopicture :  props.Poster }  height='400px' width='400px' alt = {props.Title } onClick={() => {setFlag(!flag)}} />
         { flag === true ? <Card.Body  >
             <Streams Title = {props.Title}   Checked = {false}/>
