@@ -20,8 +20,31 @@
 .Images
 {
     cursor: pointer;
-    margin: 15px;
+    margin: 5px;
+    margin-top: 0px;
+
 
 
 }
 
+.card-body {
+    background-color: #ffffff00;
+
+    height: 100px;
+    width: auto;
+    align-self: center;
+    padding: 0px;
+
+
+}
+.card
+{
+    border: none;
+}
+
+
+
+.card-img-top
+{
+  align-self: center;
+}
