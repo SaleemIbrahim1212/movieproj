@@ -1,19 +1,24 @@
-import react from "react";
+import react, {useEffect, useRef} from "react";
 import {useState} from "react";
 import './Container.css'
 import Amazon from './prime.png'
 import Youtube from './youtube.png'
 import Netflix from './netflix.png'
+import ls from "localstorage-ttl";
 
-function Streams (props)
+export const  Streams =  (props) =>
 {
+
 
     const [isNetflix, setNetflix] = useState(false )
     const [isPrime, setPrime ] = useState(false)
     const [Netflixurl, setNetflixurl] = useState('')
     const [Primeurl, setPrimeurl] = useState('')
 
-    const [isChecked, setChecked] = useState(false)
+    const CacheDataNetflix  = props.Title + "Netflix"
+    const CacheDataAmazon  = props.Title + "Amazon"
+    const ls  = require('localstorage-ttl')
+
 
 
     const options = {
@@ -24,41 +29,70 @@ function Streams (props)
         }
     };
 
+    useEffect(() => {
+
+        if (! ( ls.get(CacheDataNetflix) ||  ls.get(CacheDataAmazon) )) {
+            fetch('https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=' + props.Title + '&country=ca', options)
+                .then(response => response.json())
+                .then(response =>
+
+                    response.results.map((r) => r.locations.map((e) => {
+
+                            const name = e.display_name
+                            const url = e.url
+
+                            if (name === "Netflix" && isNetflix === false) {
+
+                                setNetflixurl(url)
+                                setNetflix(true)
+                                ls.set(CacheDataNetflix, url)
 
 
- if (!isChecked) {
-     console.log ("Here")
-     fetch('https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=' + props.Title + '&country=ca', options)
-         .then(response => response.json())
-         .then(response =>
+                            }
+                            if (name === "Amazon Prime Video" && isPrime === false) {
 
-             response.results.map((r) => r.locations.map((e) => {
+                                setPrimeurl(url)
+                                setPrime(true)
+                                ls.set(CacheDataAmazon, url)
 
-                     const name = e.display_name
-                     const url = e.url
+                            }
 
-                     if (name === "Netflix" && isNetflix === false) {
+                        }
+                    )))
+                .catch(err => console.error(err));
+        }
+        else
+        {
 
-                         setNetflixurl(url)
-                         setNetflix(true)
+            console.log ("Checking cache .....")
+            let links = ls.get(CacheDataNetflix)
+
+            if (links) {
+                setNetflixurl(ls.get(CacheDataNetflix))
+                setNetflix(true)
+
+            }
+            links = ls.get(CacheDataAmazon)
+
+            if (links)
+            {
+                 setPrimeurl(ls.get(CacheDataAmazon))
+                setPrime(true)
+
+            }
+        }
+
+    }, [] );
 
 
-                     }
-                     if (name === "Amazon Prime Video" && isPrime === false) {
-
-                         setPrimeurl(url)
-                         setPrime(true)
-
-                     }
-
-                     setChecked(true)
 
 
-                 }
-             )))
-         .catch(err => console.error(err));
 
- }
+
+
+
+
+
 
     return (
 

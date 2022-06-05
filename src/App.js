@@ -55,8 +55,9 @@ function App() {
 
 
   return (
+<html>
+      <body class={!isDark ?  "LightMode" : "DarkMode"}>
 
-      <body className={!isDark ?  "LightMode" : "DarkMode"}>
     <div className="main">
 
       <div className={!isDark ? "NavBarLight " : "NavBarDark"}>
@@ -85,7 +86,7 @@ function App() {
         <div className = "in-left" key={nanoid()} >
         {!(MovieData.length === 0) ? MovieData.map((m,index) => <MovieCard   Title={m.Title} Year={m.Year}
                                                                      Type={m.Type} Poster={m.Poster}  ind = {index} />) :
-           <div> <img    src={CouldNotFind} /> <h1 style = {{ color : "white", alignContent: "center"}}> Opps... we could notfind what you were looking for</h1></div>
+           <div> <img  className="center"  src={CouldNotFind} /> <h1 className="center" style = {{ color : "white", alignContent: "center"}}> Opps... we could notfind what you were looking for</h1></div>
 
         }
      </div>
@@ -98,6 +99,7 @@ function App() {
     </div>
 
       </body>
+</html>
   );
 }
 

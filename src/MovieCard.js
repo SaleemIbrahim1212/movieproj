@@ -50,7 +50,7 @@ function MovieCard (props)
     <Card style={{ width: '18rem', backgroundColor: 'black'}}>
         <Card.Img variant="top" src=  {props.Poster} height='400px' width='400px' alt = {props.Title } onClick={() => {setFlag(!flag)}} />
         { flag === true ? <Card.Body id = "myDiv" >
-            <Streams Title = {props.Title} />
+            <Streams Title = {props.Title}   Checked = {false}/>
          </Card.Body> : ""}
     </Card>
 

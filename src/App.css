@@ -1,3 +1,12 @@
+
+.center
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
+
 .NavBar {
     background-color: lightsalmon;
 
@@ -26,12 +35,18 @@
 .LightMode
 {
     background-color: antiquewhite;
+    min-height: 100vh;
+    padding: 0;
+
 }
 
 .DarkMode
 {
     background-color: #13294A;
+    min-height: 100vh;
+    padding: 0;
 }
+
 
 .NavBarLight
 {
