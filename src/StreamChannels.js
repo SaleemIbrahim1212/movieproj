@@ -4,7 +4,7 @@ import './Container.css'
 import Amazon from './prime.png'
 import Youtube from './youtube.png'
 import Netflix from './netflix.png'
-
+import 'localstorage-ttl'
 
 export const  Streams =  (props) =>
 {
